@@ -10,6 +10,14 @@ function create(valores) {
 
 }
 
+function Update(index, newname, newamount) {
+    const arr = getDbase()
+    arr[index].name = newname
+    arr[index].amount = newamount
+    setDbase(arr)
+
+}
+
 function DeleteOperator(index) {
     const arr = getDbase();
     arr.splice(index, 1);
@@ -18,7 +26,7 @@ function DeleteOperator(index) {
 }
 
 
-function createBalance(event) {
+function saveBalance(event) {
     
     event.preventDefault()
 
@@ -29,9 +37,36 @@ function createBalance(event) {
     
     }
 
-    create(balance)
-    initialize() 
+    const index = document.querySelector('#text').dataset.index
+    
+    if (index == 'new') {
+        create(balance)
+        initialize()
+        location.reload()
 
+    }else {
+        Update(index, balance.name, balance.amount)
+        initialize()
+        location.reload()
+
+    }
+    
+
+
+}
+
+function createUpdate (arr) {
+    document.querySelector('#text').value = arr.name;
+    document.querySelector('#amount').value = arr.amount
+    document.querySelector('#text').dataset.index = arr.index
+}
+
+
+
+function editFileds(index) {
+    const valores = getDbase()[index]
+    valores.index = index
+    createUpdate(valores)
 
 }
 
@@ -43,10 +78,14 @@ const addTransactionsIntoDOM = (transaction, index) => {
     const operator = transaction.amount < 0 ? '-' :  '+'
     const li = document.createElement('li');
 
-    const CSSclass = transaction.amount < 0 ? 'minus' : 'plus' // 
+    const CSSclass = transaction.amount < 0 ? 'minus' : 'plus'
     li.classList.add(CSSclass)
 
-    li.innerHTML = `${transaction.name} <span> R$ ${operator} ${Math.abs(transaction.amount)} </span> <button id="delete-${index}" class="delete-btn">x</button> <button id="update-${index}" class=".update-btn">update</button>`
+    li.innerHTML = ` ${transaction.name}  R$ ${operator} ${Math.abs(transaction.amount)} </span>
+    <div id="container-btn"> 
+    <button id="delete-${index}" class="delete-btn">x</button> 
+    <button id="update-${index}" class="update-btn">u</button>
+    </div>`
     document.querySelector('#transactions').prepend(li)
 }
 
@@ -67,8 +106,8 @@ const UpdateBalance = () => {
     const despesas = gastos.reduce((acc, value) => acc + value, 0)
 
     document.querySelector('#balance').textContent = `R$ ${total}`
-    document.querySelector('#money-minus').textContent = `R${despesas} ` 
-    document.querySelector('#money-plus').textContent = `R${receita} `
+    document.querySelector('#money-minus').textContent = `R$ ${despesas} ` 
+    document.querySelector('#money-plus').textContent = `R$ ${receita} `
 
 
 }
@@ -81,12 +120,11 @@ function editDelete (event) {
         initialize()
 
     }else {
-        console.log('Editando')
+        editFileds(index)
+        initialize()
     }
 
 }
-
-
 
 
 const initialize = () => {
@@ -102,6 +140,5 @@ const initialize = () => {
 initialize() 
 
 
-
-document.querySelector('#form').addEventListener('submit', createBalance);
+document.querySelector('#form').addEventListener('submit', saveBalance);
 document.querySelector('#transactions').addEventListener('click', editDelete)

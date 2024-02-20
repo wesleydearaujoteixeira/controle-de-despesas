@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: #f7f7f7;
+  background-color: rgb(124, 41, 202);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,23 +17,28 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: 'Lato', sans-serif;
+  color: white;
 }
 
 .container {
-  margin: 30px auto;
-  width: 350px;
+  margin: auto;
+  min-width: 60%;
+  background-color: black;
+  border-radius: 3%;
+  padding: 2%;
 }
 
 h1 {
   letter-spacing: 1px;
   margin: 0;
-  color: #2e75cc;
+  color: #fff;
 }
 
 h3 {
   border-bottom: 1px solid #bbb;
   padding-bottom: 10px;
   margin: 40px 0 10px;
+  font-size: 2em;
 }
 
 h4 {
@@ -42,7 +47,7 @@ h4 {
 }
 
 .inc-exp-container {
-  background-color: #fff;
+  background-color: black;
   box-shadow: var(--box-shadow);
   padding: 20px;
   display: flex;
@@ -56,7 +61,7 @@ h4 {
 }
 
 .inc-exp-container > div:first-of-type {
-  border-right: 1px solid #dedede;
+  border-right: 1px solid black;
 }
 
 .money {
@@ -67,10 +72,13 @@ h4 {
 
 .money.plus {
   color: #2ecc71;
+  font-size: 30px;
 }
 
 .money.minus {
   color: #c0392b;
+  font-size: 30px;
+
 }
 
 label {
@@ -85,48 +93,33 @@ input[type='number'] {
   display: block;
   font-size: 16px;
   padding: 10px;
-  width: 100%;
+  min-width: 60%;
+
 }
 
-.btn {
-  cursor: pointer;
-  background-color: #9c88ff;
-  box-shadow: var(--box-shadow);
-  color: #fff;
-  border: 0;
-  display: block;
-  font-size: 16px;
-  margin: 10px 0 30px;
-  padding: 10px;
-  width: 100%;
-}
 
-.btn:focus,
-.delete-btn:focus {
-  outline: 0;
-}
-
-.btn:focus,
-.update-btn:focus {
-  outline: 0;
-}
 
 .transactions {
   list-style-type: none;
   padding: 0;
   margin-bottom: 40px;
+  min-width: 60%;
+
 }
 
 .transactions li {
-  background-color: #fff;
+  background-color: black;
   box-shadow: var(--box-shadow);
-  color: #333;
+  color: #fff;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   position: relative;
+  font-size: 1.5rem;
   padding: 10px;
   margin: 10px 0;
 }
+
+
 
 .transactions li.plus {
   border-right: 5px solid #2ecc71;
@@ -136,44 +129,7 @@ input[type='number'] {
   border-right: 5px solid #c0392b;
 }
 
-.delete-btn {
-  cursor: pointer;
-  background-color: #e74c3c;
-  border: 0;
-  color: #fff;
-  font-size: 20px;
-  line-height: 20px;
-  padding: 2px 5px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(-100%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
 
 
-.update-btn {
-    cursor: pointer;
-    background-color: #3ce753;
-    border: 0;
-    color: #fff;
-    font-size: 20px;
-    line-height: 20px;
-    padding: 2px 5px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-100%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
+
   
-
-.transactions li:hover .delete-btn {
-  opacity: 1;
-}
-
-.transactions li:hover .update-btn {
-    opacity: 1;
-  }

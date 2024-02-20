@@ -1,0 +1,110 @@
+@media screen and (max-width: 600px){
+
+    .container {
+        margin: auto;
+        min-width: 80%;
+        min-height: 30%;
+        background-color: black;
+        border-radius: 3%;
+        padding: 2%;
+        margin-bottom: 2rem;
+
+      }
+
+      .money.plus {
+        color: #2ecc71;
+        font-size: 20px;
+      }
+      
+      .money.minus {
+        color: #c0392b;
+        font-size: 20px;
+      
+      }
+
+
+      .transactions li {
+        background-color: black;
+        box-shadow: var(--box-shadow);
+        color: #fff;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        font-size: 1em;
+        padding: 10px;
+        margin: 10px 0;
+      }
+
+      .update-btn {
+        cursor: pointer;
+        background-color: #3ce753;
+        border: 0;
+        color: #fff;
+        font-size: 20px;
+        line-height: 20px;
+        padding: 2px 5px;
+        position: absolute;
+        gap: 3rem;
+        top: 53%;
+        left: -6%;
+        transform: translate(-100%, -60%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+    
+  }
+
+
+  @media screen and (min-width: 600px) and (max-width: 1500px){
+
+    .container {
+        margin: auto;
+        min-width: 400px;
+        background-color: black;
+        border-radius: 3%;
+        padding: 2%;
+      }
+
+
+      .money.plus {
+        color: #2ecc71;
+        font-size: 14px;
+      }
+      
+      .money.minus {
+        color: #c0392b;
+        font-size: 14px;
+      
+      }
+
+
+      .transactions li {
+        background-color: black;
+        box-shadow: var(--box-shadow);
+        color: #fff;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        font-size: 1.5em;
+        padding: 10px;
+        margin: 10px 0;
+      }
+
+      .update-btn {
+        cursor: pointer;
+        background-color: #3ce753;
+        border: 0;
+        color: #fff;
+        font-size: 20px;
+        line-height: 20px;
+        padding: 2px 5px;
+        position: absolute;
+        gap: 3rem;
+        top: 53%;
+        left: -6%;
+        transform: translate(-100%, -60%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+    
+  }
