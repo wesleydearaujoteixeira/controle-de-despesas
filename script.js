@@ -63,10 +63,6 @@ function saveBalance(event) {
 
 
 
-   
-    
-
-
 }
 
 
@@ -86,8 +82,6 @@ function editFileds(index) {
     createUpdate(valores)
 
 }
-
-
 
 
 const addTransactionsIntoDOM = (transaction, index) => {
@@ -123,7 +117,7 @@ const UpdateBalance = () => {
     const despesas = gastos.reduce((acc, value) => acc + value, 0)
 
     document.querySelector('#balance').textContent = `R$ ${total}`
-    document.querySelector('#money-minus').textContent = `R$ ${despesas} ` 
+    document.querySelector('#money-minus').textContent = `R$ ${Math.abs(despesas)} ` 
     document.querySelector('#money-plus').textContent = `R$ ${receita} `
 
 
