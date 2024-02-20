@@ -30,12 +30,22 @@ function saveBalance(event) {
     
     event.preventDefault()
 
+    const InputText = document.getElementById('text').value
+    const InputAmount = document.getElementById('amount').value
+
+    if(InputText === "" || InputAmount == ""){
+         alert('Informe o nome ou um valor válido, por favor!')
+         return  
+    }
+
     const balance = {
 
         name: document.getElementById('text').value, 
         amount: document.getElementById('amount').value, 
     
     }
+    document.getElementById('text').value = ''
+    document.getElementById('amount').value = ''
 
     const index = document.querySelector('#text').dataset.index
     
@@ -50,10 +60,17 @@ function saveBalance(event) {
         location.reload()
 
     }
+
+
+
+   
     
 
 
 }
+
+
+
 
 function createUpdate (arr) {
     document.querySelector('#text').value = arr.name;
@@ -140,5 +157,5 @@ const initialize = () => {
 initialize() 
 
 
-document.querySelector('#form').addEventListener('submit', saveBalance);
+document.querySelector('#form').addEventListener('submit', saveBalance)
 document.querySelector('#transactions').addEventListener('click', editDelete)
