@@ -33,7 +33,7 @@ function saveBalance(event) {
     const InputText = document.getElementById('text').value
     const InputAmount = document.getElementById('amount').value
 
-    if(InputText === "" || InputAmount == ""){
+    if(InputText == "" || InputAmount == ""){
          alert('Informe o nome ou um valor válido, por favor!')
          return  
     }
@@ -62,7 +62,6 @@ function saveBalance(event) {
     }
 
 
-
 }
 
 
@@ -86,7 +85,7 @@ function editFileds(index) {
 
 const addTransactionsIntoDOM = (transaction, index) => {
 
-    const operator = transaction.amount < 0 ? '-' :  '+'
+    const operator = transaction.amount < 0 ? ' - ' :  ' + '
     const li = document.createElement('li');
 
     const CSSclass = transaction.amount < 0 ? 'minus' : 'plus'
@@ -94,8 +93,8 @@ const addTransactionsIntoDOM = (transaction, index) => {
 
     li.innerHTML = ` ${transaction.name}  R$ ${operator} ${Math.abs(transaction.amount)} </span>
     <div id="container-btn"> 
-    <button id="delete-${index}" class="delete-btn">x</button> 
-    <button id="update-${index}" class="update-btn">u</button>
+    <button id="delete-${index}" class="delete-btn">delete</button> 
+    <button id="update-${index}" class="update-btn">update</button>
     </div>`
     document.querySelector('#transactions').prepend(li)
 }
@@ -116,9 +115,9 @@ const UpdateBalance = () => {
     const receita = salario.reduce((acc, value) => acc + value, 0)
     const despesas = gastos.reduce((acc, value) => acc + value, 0)
 
-    document.querySelector('#balance').textContent = `R$ ${total}`
-    document.querySelector('#money-minus').textContent = `R$ ${Math.abs(despesas)} ` 
-    document.querySelector('#money-plus').textContent = `R$ ${receita} `
+    document.querySelector('#balance').textContent = ` ${total} R$`
+    document.querySelector('#money-minus').textContent = `R$ ${Math.abs(despesas)} R$` 
+    document.querySelector('#money-plus').textContent = ` ${receita} R$`
 
 
 }
